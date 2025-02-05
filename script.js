@@ -16,4 +16,25 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     alert(`Thank you, ${name}! Your message has been sent.`);
     document.getElementById('contact-form').reset();  // Reset form
   });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll(".navbar a");
+  
+    // Highlight the active tab
+    links.forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add("active");
+      }
+    });
+  
+    // Smooth scrolling for in-page navigation
+    document.querySelectorAll("a[href^='#']").forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        target.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  });
+  
   
